@@ -1,0 +1,24 @@
+<div class = "container">
+	<h1>
+		Type Your string here
+
+	</h1>
+	
+	<form method="POST">
+
+		{%csrf_token%}
+		{{form}}
+		<button type="submit">
+			CHeck REsult
+			
+		</button>
+		
+	</form>
+
+<h2>
+	the freuency of charater is as followed
+{{all_freq}}
+</h2>
+
+
+</div>
