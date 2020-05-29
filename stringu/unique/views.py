@@ -9,6 +9,7 @@ def get(request):
 
 def ask_string(request):
 	text=None
+	count=0
 	form = HomeForm(request.POST or None ) 
 	if form.is_valid():
 		text=form.cleaned_data['post']
@@ -24,7 +25,12 @@ def ask_string(request):
 		print ("Count of all characters in strings are is :\n "
                                         +  str(all_freq)) 
 
-
-	args={ 'form': form ,'text':text,'all_freq':all_freq}
+		temp=[]
+		for i in text:
+			if(i not in temp):
+				count+=1
+				temp.append(i)
+	
+	args={ 'form': form ,'text':text,'all_freq':all_freq 'count':count}
 	return render(request,  'home/home.html', args)
 	
